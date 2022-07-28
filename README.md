@@ -44,6 +44,7 @@ The following is list of actions that must be performed before using this templa
 As the template is instantiated from github, the new name will automatically replace the top level directory name, that being ___arcadia___.
 
 + `github actions workflow`: If the client application needs to use github actions for continuous integration, then the name of the [workflow](.github/workflows/ci-workflow.yml) needs to be changed. If not, then the workflow file should be deleted
++ `code coverage publication`: by default, coverage is published to [coveralls.io](https://coveralls.io), so coveralls needs to be setup to prevent the github actions workflow from failing. Alternatively, another service can be used. The user needs to adjust the __Send coverage__ job in the workflow accordingly. 
 + `replace README content`
 + `rename lib folder` to something domain specific
 + `create .env file`: Add any appropriate secrets to a newly created .env in the root directory

@@ -14,4 +14,12 @@
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
+# go-task intermediate files like checksums
+#
+.task/
+.env
+
+coverage
+ginkgo.report
+
 src/lib/internal/l10n/out/translate.en-US.json
