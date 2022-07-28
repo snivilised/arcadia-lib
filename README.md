@@ -49,3 +49,4 @@ As the template is instantiated from github, the new name will automatically rep
 + `rename lib folder` to something domain specific
 + `create .env file`: Add any appropriate secrets to a newly created .env in the root directory
 + `update message id`: This package supports i18n and as part of that defines messages that need to be translated. The user needs to update the message ids of defined messages in `messages.go`, which by default contain ___arcadia-lib___ as part of the id.
++ `default language`: The user can change to whatever language is suitable. The default is British English, with American English being supported out of the box.
