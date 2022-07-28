@@ -6,6 +6,8 @@ type Localisable interface {
 	Message() *i18n.Message
 }
 
+// === All localisable messages should be defined here ===
+
 // language not supported
 //
 type LanguageNotSupportedTemplData struct {

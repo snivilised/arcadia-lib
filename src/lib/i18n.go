@@ -15,7 +15,7 @@ import (
 // loading the bundle
 //
 // Create the "active.en.json" file from internal/i18n:
-// cd internal/i18n
+// cd internal/l10n
 // goi18n extract -format json
 
 // do merge
@@ -67,7 +67,7 @@ func UseTag(tag language.Tag) error {
 		languages = createIncrementalLanguageInfo(tag, languages)
 		localiser = createLocaliser(languages)
 	} else {
-		return fmt.Errorf(getLanguageNotSupportedErrorMessage(tag))
+		return fmt.Errorf(GetLanguageNotSupportedErrorMessage(tag))
 	}
 
 	return nil
@@ -83,6 +83,15 @@ func GetLanguageInfo() *LanguageInfo {
 //
 func GetLocaliser() *i18n.Localizer {
 	return localiser
+}
+
+// GetLanguageNotSupportedErrorMessage
+//
+func GetLanguageNotSupportedErrorMessage(tag language.Tag) string {
+	data := l10n.LanguageNotSupportedTemplData{
+		Language: tag.String(),
+	}
+	return localise(data)
 }
 
 type detectInfo struct {
@@ -150,11 +159,4 @@ func localise(data l10n.Localisable) string {
 		DefaultMessage: data.Message(),
 		TemplateData:   data,
 	})
-}
-
-func getLanguageNotSupportedErrorMessage(tag language.Tag) string {
-	data := l10n.LanguageNotSupportedTemplData{
-		Language: tag.String(),
-	}
-	return localise(data)
 }
